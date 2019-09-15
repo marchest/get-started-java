@@ -28,6 +28,8 @@ import javax.ws.rs.core.Application;
 
 import com.google.gson.Gson;
 
+import fashion.dbhelper.MongoDbHelper;
+import fashion.service.ProductService;
 import wasdev.sample.Visitor;
 import wasdev.sample.store.VisitorStore;
 import wasdev.sample.store.VisitorStoreFactory;
@@ -39,6 +41,17 @@ public class VisitorAPI extends Application {
     //Our database store
     VisitorStore store = VisitorStoreFactory.getInstance();
 
+/*
+
+    @GET
+    @Path("/")
+    @Produces("application/json")
+    public String getProducts(){
+
+        //ProductService service=new ProductService();
+        MongoDbHelper service=new MongoDbHelper();
+        return new Gson().toJson(service.getAll());
+    }*/
     /**
      * Gets all Visitors.
      * REST API example:
@@ -70,7 +83,7 @@ public class VisitorAPI extends Application {
         }
         return new Gson().toJson(names);
     }
-    
+
     /**
      * Creates a new Visitor.
      * 
